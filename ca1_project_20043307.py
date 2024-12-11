@@ -283,6 +283,10 @@ def home():
 @app.route("/products.html") #Default - Show Data
 def index(): # Name of the method
     return render_template('products.html')
+
+@app.route("/add_products.html") #Default - Show Data
+def index(): # Name of the method
+    return render_template('add_products.html')
     
 if __name__ == "__main__":
   app.run(host='0.0.0.0',port='8080', ssl_context=('cert.pem', 'privkey.pem')) #Run the flask app at port 8080

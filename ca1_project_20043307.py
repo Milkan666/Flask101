@@ -285,7 +285,7 @@ def index(): # Name of the method
     return render_template('products.html')
 
 @app.route("/add_products.html") #Default - Show Data
-def index(): # Name of the method
+def addproductdata(): # Name of the method
     return render_template('add_products.html')
     
 if __name__ == "__main__":

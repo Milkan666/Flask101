@@ -223,7 +223,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/get_products', methods=['GET'])
-def getJobsData(): # Name of the method
+def getProductsDetails(): # Name of the method
   cursor.execute("SELECT * FROM ProductsDetails")
   rows = cursor.fetchall()
   rows
@@ -253,7 +253,7 @@ def getJobsData(): # Name of the method
   return ret #Return the data in a string format
 
 @app.route("/product_add", methods=['GET', 'POST'])
-def addJobDetails():
+def addProductsDetails():
   if request.method == 'POST':
     Product_name = request.form['Product name']
     Product_type  = request.form['Product type']

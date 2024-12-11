@@ -106,12 +106,12 @@ if search_column in df.columns:
 else:
     print(f"Column '{search_column}' does not exist in the DataFrame.")
 
-file_path = '/content/drive/MyDrive/Colab Notebooks/CA2 Project/products.xlsx'
+#file_path = '/content/drive/MyDrive/Colab Notebooks/CA2 Project/products.xlsx'
 
 # Export the DataFrame to an Excel file
-df.to_excel(file_path, index=False)
+#df.to_excel(file_path, index=False)
 
-print(f"DataFrame has been successfully saved to {file_path}")
+#print(f"DataFrame has been successfully saved to {file_path}")
 
 df.info()
 

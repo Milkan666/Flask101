@@ -211,9 +211,9 @@ cursor.execute("SELECT * FROM ProductsDetails")
 rows = cursor.fetchall()
 rows
 
-!pip install flask
+#!pip install flask
 
-!pip install flask-cors
+#!pip install flask-cors
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS

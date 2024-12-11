@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Test API Client</title>
+<script>
+let doIt = () => {
+  let button = document.querySelector("button");
+  button.disabled = true; // Disable the button after the first click
 
+  let tab = document.getElementById("tab1");
+  let rows = tab.getElementsByTagName("tr");
+
+  fetch("https://milkan.westeurope.cloudapp.azure.com:8080/get_products")
+    .then(response => response.json())
+    .then(data => 
+      data.Results.forEach(
+        x => {
+          let newRow = rows[0].cloneNode(true);
+          let divs = newRow.getElementsByTagName("td");
+          divs[0].innerHTML = x["Product name"];
+          divs[1].innerHTML = x["Product type"];
+          divs[2].innerHTML = `<img src="${x['Image URL']}" alt="Logo" width="50">`; // Show the logo as an image
+          divs[3].innerHTML = x["id"];
+          divs[4].innerHTML = x["colors"];
+          divs[5].innerHTML = x["homeDelivery"];
+          divs[6].innerHTML = x["Design type"];
+          divs[7].innerHTML = x["Product variants"];
+          divs[8].innerHTML = x["Currency"];
+          divs[9].innerHTML = x["Price"];
+          divs[10].innerHTML = x["Product Category"];
+          divs[11].innerHTML = x["Store_stock"];
+          divs[12].innerHTML = x["Availability"];
+          
+          tab.appendChild(newRow);
+        }
+      )
+    )
+    .catch(error => {
+      console.error("Error fetching data:", error);
+      button.disabled = false; // Re-enable the button if there's an error
+    });
+};
+</script>
+</head>
+<body>
+<button onClick="doIt()">Press me</button>
+This is where the results turn up: <br/>
+<table id='tab1' bgcolor='grey'>
+<tr>
+    <td>Job_Title</td>
+    <td>Company_Name</td>
+    <td>Company_Logo</td>
+    <td>Location</td>
+    <td>Salary Amount</td>
+    <td>Pay Type</td>
+    <td>Date_Posted</td>
+    <td>Expiry_Date</td>
+    <td>Job Status</td>
+</tr>
+</table></body>
+</html>

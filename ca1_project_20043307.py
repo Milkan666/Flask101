@@ -280,5 +280,5 @@ def addProductsDetails():
 def home():
     return "Test Flask is running!"
 
-if _name_ == "_main_":
+if __name__ == "__main__":
   app.run(host='0.0.0.0',port='8080', ssl_context=('cert.pem', 'privkey.pem')) #Run the flask app at port 8080

@@ -201,7 +201,7 @@ df_clean.info()
 
 import sqlite3
 
-connection = sqlite3.connect('products.db')
+connection = sqlite3.connect('products.db',check_same_thread=False)
 
 cursor = connection.cursor()
 
